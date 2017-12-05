@@ -1,0 +1,23 @@
+.scroll-container {
+  display: flex;
+  justify-content: center;
+}
+
+.opening-crawl {
+  width: 50%;
+position: relative;
+top: -100px;
+transform-origin: 90% 90%;
+animation: crawl 30s infinite linear;
+}
+
+@keyframes crawl {
+0% {
+  top: 0;
+  transform: rotateX(20deg) translateZ(0);
+}
+100% {
+  top: -1500px;
+  transform: rotateX(25deg) translateZ(-2500deg);;
+}
+}
