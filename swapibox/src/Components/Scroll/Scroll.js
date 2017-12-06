@@ -9,6 +9,8 @@ const releaseDate = data[opening].Release;
   return (
     <div className="scroll-container">
       <p className="opening-crawl">{text}</p>
+      <p className="opening-title">{filmTitle}</p>
+      <p className="opening-releaseDate">{releaseDate}</p>
     </div>
 
   )
