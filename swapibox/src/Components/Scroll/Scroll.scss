@@ -1,9 +1,12 @@
 .scroll-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-.opening-crawl {
+.opening-crawl,
+.opening-title,
+.opening-releaseDate {
   width: 50%;
 position: relative;
 top: -100px;
