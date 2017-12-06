@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './../Card/Card.js';
 import './CardContainer.css';
 
-const CardContainer = ({ cardType}) => {
+const CardContainer = ({ cardType }) => {
   if (cardType.length > 0) {
     const cards = cardType.map((card, index) =>
       <Card cardData={card}
@@ -12,7 +12,7 @@ const CardContainer = ({ cardType}) => {
 
     return (
       <div className='card-container'>
-        {cards}
+        <div className='cards'>{cards}</div>
       </div>
     );
   }
