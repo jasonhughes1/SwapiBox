@@ -3,30 +3,30 @@ import './Card.css';
 
 const Card = ({ cardData }) => {
   const cardKeys = Object.keys(cardData);
-  const cards = cardKeys.map((prop, index) => {
-  const card = cardData[propReturn(prop)];
-    
-    function propReturn(prop) {
-      if (prop === 'Residents') {
+  const cards = cardKeys.map((key, index) => {
+  const populateCard = cardData[dataReturn(key)];
+
+    function dataReturn(key) {
+      if (key === 'Residents') {
         cardData.Residents =
         cardData.Residents.map(resident => resident.name + ' ');
-        return prop;
+        return key;
       } else {
-        return prop;
+        return key;
       }
     }
     return (
-      <div key={index}>
-        <h3>{prop}</h3>
-        <p>{card}</p>
+      <div  key={index}>
+        <h3>{key}</h3>
+        <p>{populateCard}</p>
       </div>
     );
   });
 
 
   return (
-    <article className='card'>
-      { cards }
+    <article className='card-holder'>
+    { cards }
     </article>
   );
 };

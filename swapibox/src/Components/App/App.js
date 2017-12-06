@@ -77,6 +77,10 @@ class App extends Component {
       }
 
 
+  changeCards = (num) => {
+    this.setState({currentIndex: num})
+  }
+
   cardSet() {
     const { data, currentIndex } = this.state;
     return data[currentIndex];
@@ -90,9 +94,9 @@ class App extends Component {
           <Header />
           <h1>APP HERE</h1>
           <Controls
-            changeCategory={this.changeCategory}
-            currentView={this.state.currentView}
-
+            buttonText='People'
+            changeCards={this.changeCards}
+            num={1}
           />
           <Scroll data={this.state.data[0]}
             opening={this.state.opening}
