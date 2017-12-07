@@ -29,7 +29,6 @@ const fetchHomeworld = (data) => {
 
   const fetchSpecies = (data) => {
       const speciesData = data.map((species) => {
-        console.log(species.species);
         return fetch(species.species)
         .then(res => res.json());
       });

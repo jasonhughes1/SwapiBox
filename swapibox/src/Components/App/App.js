@@ -50,26 +50,14 @@ class App extends Component {
 
   // generateCrawl() {
   //   let random = Math.floor(Math.random() * (6 - 0 + 1))
+  //
+  // }
   //   // generate a random number
   //   // grab films array map through it to get an array of crawls
   //   // then pick one
   //   // this.setState({openingCrawl : })
   // }
 
-  // cleanData(data) {
-  //   const filmOpenings = data[0].results.map(obj => {
-  //     return Object.assign({}, {Opening: obj.opening_crawl,
-  //       Title: obj.title, Release: obj.release_date});
-  //     });
-  //
-  //     const mappedPeople = data[1].map(obj => {
-  //       return Object.assign({}, {Name: obj.name,
-  //         Homeworld: obj.Homeworld,
-  //         Species: obj.Species,
-  //         Population: obj.Population});
-  //       });
-  //       return [filmOpenings, mappedPeople]
-  // }
 
   changeCards = (num) => {
     this.setState({currentIndex: num})
@@ -90,6 +78,11 @@ class App extends Component {
             buttonText='People'
             changeCards={this.changeCards}
             num={1}
+          />
+          <Controls
+            buttonText='Planets'
+            changeCards={this.changeCards}
+            num={2}
           />
           <Scroll data={this.state.data[0]}
             opening={this.state.opening}

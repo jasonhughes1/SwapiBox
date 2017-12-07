@@ -18,11 +18,11 @@ const Card = ({ cardData }) => {
     return (
       <div  key={index}>
         <h3>{key}</h3>
+
         <p>{populateCard}</p>
       </div>
     );
   });
-
 
   return (
     <article className='card-holder'>
