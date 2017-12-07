@@ -12,6 +12,12 @@ const getPlanets = () => {
       .then(data => data.json());
 }
 
+const getVehicles = () => {
+  return fetch('https://swapi.co/api/vehicles/')
+    .then(data => data.json());
+}
+
+
 const fetchHomeworld = (data) => {
   const homeworldData = data.map((world) => {
     return fetch(world.homeworld)
@@ -77,8 +83,14 @@ const fetchHomeworld = (data) => {
             Climate: obj.climate,
             Residents: obj.Residents});
         });
-          return [filmOpenings, mappedPeople, mappedPlanets]
-    }
+        const vehicles = data[3].results.map(obj => {
+          return Object.assign({}, {Name: obj.name,
+            Model: obj.model, Vehicle: obj.vehicle_class,
+            Passengers: obj.passengers});
+});
+
+        return [filmOpenings, mappedPeople, mappedPlanets, vehicles];
+}
 
 
 module.exports = {
@@ -88,5 +100,7 @@ module.exports = {
   fetchSpecies,
   cleanData,
   getPlanets,
-  fetchResidents
+  fetchResidents,
+  getVehicles
+
 }
