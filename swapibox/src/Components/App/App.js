@@ -4,7 +4,7 @@ import Controls from './../Controls/Controls.js';
 import Scroll from './../Scroll/Scroll.js';
 import Header from './../Header/Header.js';
 import CardContainer from './../CardContainer/CardContainer';
-import { getFilms, getPeople, getPlanets, fetchHomeworld, fetchSpecies, cleanData, fetchResidents } from '../../utility.js';
+import { getFilms, getPeople, getPlanets, getVehicles, fetchHomeworld, fetchSpecies, cleanData, fetchResidents } from '../../utility.js';
 
 
 class App extends Component {
@@ -34,13 +34,15 @@ class App extends Component {
       const films = getFilms()
       const people = getPeople()
       const planets = getPlanets()
+      const vehicles = getVehicles()
 
-      return Promise.all([films, people, planets])
+
+      return Promise.all([films, people, planets, vehicles])
       .then(data => {
         const peopleData = fetchHomeworld(data[1].results)
         .then(data => fetchSpecies(data));
         const planetsData = fetchResidents(data[2].results);
-        return Promise.all([films, peopleData, planetsData])
+        return Promise.all([films, peopleData, planetsData, vehicles])
         .then(data => {
 
           this.setState({data: cleanData(data)})
@@ -83,6 +85,11 @@ class App extends Component {
             buttonText='Planets'
             changeCards={this.changeCards}
             num={2}
+          />
+          <Controls
+            buttonText='Vehicles'
+            changeCards={this.changeCards}
+            num={3}
           />
           <Scroll data={this.state.data[0]}
             opening={this.state.opening}
