@@ -7,6 +7,11 @@ const getPeople = () => {
   .then(data => data.json());
 }
 
+const getPlanets = () => {
+  return fetch('https://swapi.co/api/planets/')
+      .then(data => data.json());
+}
+
 const fetchHomeworld = (data) => {
   const homeworldData = data.map((world) => {
     return fetch(world.homeworld)
@@ -36,6 +41,23 @@ const fetchHomeworld = (data) => {
       });
     }
 
+  const fetchResidents = (data) => {
+  const specificResidentsData = data.map( (planets) => {
+
+    const specificResidents = planets.residents.map((link) => {
+      return fetch(link)
+        .then(res => res.json());
+    });
+
+    return Promise.all(specificResidents).then( people => {
+      return Object.assign(planets, {Residents: people});
+    });
+  });
+
+  return Promise.all(specificResidentsData);
+}
+
+
   const cleanData = (data) => {
       const filmOpenings = data[0].results.map(obj => {
         return Object.assign({}, {Opening: obj.opening_crawl,
@@ -47,8 +69,16 @@ const fetchHomeworld = (data) => {
             Homeworld: obj.Homeworld,
             Species: obj.Species,
             Population: obj.Population});
-          });
-          return [filmOpenings, mappedPeople]
+        });
+
+        const mappedPlanets = data[2].map(obj => {
+          return Object.assign({}, {Name: obj.name,
+            Terrain: obj.terrain,
+            Population: obj.population,
+            Climate: obj.climate,
+            Residents: obj.Residents});
+        });
+          return [filmOpenings, mappedPeople, mappedPlanets]
     }
 
 
@@ -57,5 +87,7 @@ module.exports = {
   getPeople,
   fetchHomeworld,
   fetchSpecies,
-  cleanData
+  cleanData,
+  getPlanets,
+  fetchResidents
 }

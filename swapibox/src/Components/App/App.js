@@ -4,7 +4,7 @@ import Controls from './../Controls/Controls.js';
 import Scroll from './../Scroll/Scroll.js';
 import Header from './../Header/Header.js';
 import CardContainer from './../CardContainer/CardContainer';
-import { getFilms, getPeople, fetchHomeworld, fetchSpecies, cleanData } from '../../utility.js';
+import { getFilms, getPeople, getPlanets, fetchHomeworld, fetchSpecies, cleanData, fetchResidents } from '../../utility.js';
 
 
 class App extends Component {
@@ -33,13 +33,16 @@ class App extends Component {
     componentDidMount() {
       const films = getFilms()
       const people = getPeople()
+      const planets = getPlanets()
 
-      return Promise.all([films, people])
+      return Promise.all([films, people, planets])
       .then(data => {
-        const people = fetchHomeworld(data[1].results)
+        const peopleData = fetchHomeworld(data[1].results)
         .then(data => fetchSpecies(data));
-        return Promise.all([films, people])
+        const planetsData = fetchResidents(data[2].results);
+        return Promise.all([films, peopleData, planetsData])
         .then(data => {
+
           this.setState({data: cleanData(data)})
         })
       });
@@ -53,20 +56,20 @@ class App extends Component {
   //   // this.setState({openingCrawl : })
   // }
 
-  cleanData(data) {
-    const filmOpenings = data[0].results.map(obj => {
-      return Object.assign({}, {Opening: obj.opening_crawl,
-        Title: obj.title, Release: obj.release_date});
-      });
-
-      const mappedPeople = data[1].map(obj => {
-        return Object.assign({}, {Name: obj.name,
-          Homeworld: obj.Homeworld,
-          Species: obj.Species,
-          Population: obj.Population});
-        });
-        return [filmOpenings, mappedPeople]
-  }
+  // cleanData(data) {
+  //   const filmOpenings = data[0].results.map(obj => {
+  //     return Object.assign({}, {Opening: obj.opening_crawl,
+  //       Title: obj.title, Release: obj.release_date});
+  //     });
+  //
+  //     const mappedPeople = data[1].map(obj => {
+  //       return Object.assign({}, {Name: obj.name,
+  //         Homeworld: obj.Homeworld,
+  //         Species: obj.Species,
+  //         Population: obj.Population});
+  //       });
+  //       return [filmOpenings, mappedPeople]
+  // }
 
   changeCards = (num) => {
     this.setState({currentIndex: num})
