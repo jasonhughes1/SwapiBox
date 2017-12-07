@@ -7,10 +7,18 @@ const filmTitle = data[opening].Title;
 const releaseDate = data[opening].Release;
 
   return (
-    <div className="scroll-container">
-      <p className="opening-crawl">{text}</p>
-      <p className="opening-title">{filmTitle}</p>
-      <p className="opening-releaseDate">{releaseDate}</p>
+    <div>
+      <div className='crawl-container'>
+        <div className='fade'>
+        </div>
+        <div className='star-wars'>
+          <div className='crawl'>
+            <p className='crawl-text'>{text}</p>
+            <p className='film-title'>{filmTitle}</p>
+            <p className='release-date'>{releaseDate}</p>
+          </div>
+        </div>
+      </div>
     </div>
 
   )

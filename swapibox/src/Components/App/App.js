@@ -75,22 +75,27 @@ class App extends Component {
       return (
         <div className='App'>
           <Header />
-          <h1>APP HERE</h1>
+          <div className='button-container'>
           <Controls
             buttonText='People'
+            className={'button  main-btn active'}
             changeCards={this.changeCards}
             num={1}
+
           />
           <Controls
             buttonText='Planets'
+            className={'button  main-btn active'}
             changeCards={this.changeCards}
             num={2}
           />
           <Controls
             buttonText='Vehicles'
+            className={'button  main-btn active'}
             changeCards={this.changeCards}
             num={3}
           />
+        </div>
           <Scroll data={this.state.data[0]}
             opening={this.state.opening}
           />
