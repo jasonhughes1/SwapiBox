@@ -12,26 +12,14 @@ class App extends Component {
     super()
     this.state = {
       data: null,
-      films: null,
-      people: null,
       opening: Math.floor(Math.random() * (6 - 0 + 1)),
       currentIndex: 1,
       favClicked: false,
       favorites: [],
-      openingCrawl: '',
     }
   }
-// make an api utility
-  // test the utility
-  // make your app component readable
-  // use async await
-    // look into putting the logic into functions so that it's easier to follow your control flow
-// probs move the opening random number generator into a function
-// maybe create a function that just populates your crawl.
-  // getFilms = () => {
-  //   return fetch('https://swapi.co/api/films/').then(data => data.json());
-  // }
 
+  // use async await
     componentDidMount() {
       const films = getFilms()
       const people = getPeople()
@@ -96,7 +84,10 @@ favClicked = () => {
   }
 
   cardSet() {
-    const { data, currentIndex } = this.state;
+    const { data, currentIndex, favorites } = this.state;
+    if(currentIndex === 4) {
+      return favorites;
+    }
     return data[currentIndex];
   }
 
@@ -106,6 +97,9 @@ favClicked = () => {
         <div className='App'>
           <Header favFn={this.favClicked}
                   numFav={this.state.favorites.length}
+                  changeCards={this.changeCards}
+                  num={4}
+
                 />
 
           <div className='button-container'>
@@ -136,12 +130,14 @@ favClicked = () => {
           <CardContainer
             cardType = {this.cardSet()}
             setFavorite={this.setFavorite}
+            favArray={this.state.favorites}
+
           />
         </div>
       );
     } else {
       return (
-        <div>WAIT SON</div>
+        <div>WAIT</div>
       )
     }
   }

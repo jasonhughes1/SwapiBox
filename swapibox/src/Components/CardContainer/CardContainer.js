@@ -2,8 +2,8 @@ import React from 'react';
 import Card from './../Card/Card.js';
 import './CardContainer.css';
 
-const CardContainer = ({ cardType, setFavorite }) => {
-  if (cardType.length > 0) {
+const CardContainer = ({ cardType, setFavorite, favArray }) => {
+  if (cardType) {
     const cards = cardType.map((card, index) =>
       <Card cardData={card}
                  key={index}
