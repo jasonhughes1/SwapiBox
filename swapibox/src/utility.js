@@ -1,26 +1,26 @@
 const getFilms = () => {
   return fetch('https://swapi.co/api/films/').then(data => data.json());
-}
+};
 
 const getPeople = () => {
   return fetch('https://swapi.co/api/people/')
-  .then(data => data.json());
-}
+    .then(data => data.json());
+};
 
 const getPlanets = () => {
   return fetch('https://swapi.co/api/planets/')
-      .then(data => data.json());
-}
+    .then(data => data.json());
+};
 
 const getVehicles = () => {
   return fetch('https://swapi.co/api/vehicles/')
     .then(data => data.json());
-}
+};
 
 const fetchHomeworld = (data) => {
   const homeworldData = data.map((world) => {
     return fetch(world.homeworld)
-    .then(res => res.json());
+      .then(res => res.json());
   });
 
   return Promise.all(homeworldData).then( homeworlds => {
@@ -28,24 +28,24 @@ const fetchHomeworld = (data) => {
       return Object.assign(data[currentIndex],
         {Homeworld: homeworld.name,
           Population: homeworld.population});
-        });
-      });
-    }
+    });
+  });
+};
 
-  const fetchSpecies = (data) => {
-      const speciesData = data.map((species) => {
-        return fetch(species.species)
-        .then(res => res.json());
-      });
+const fetchSpecies = (data) => {
+  const speciesData = data.map((species) => {
+    return fetch(species.species)
+      .then(res => res.json());
+  });
 
-      return Promise.all(speciesData).then( species => {
-        return species.map((specie, currentIndex) => {
-          return Object.assign(data[currentIndex], {Species: specie.name});
-        });
-      });
-    }
+  return Promise.all(speciesData).then( species => {
+    return species.map((specie, currentIndex) => {
+      return Object.assign(data[currentIndex], {Species: specie.name});
+    });
+  });
+};
 
-  const fetchResidents = (data) => {
+const fetchResidents = (data) => {
   const specificResidentsData = data.map( (planets) => {
 
     const specificResidents = planets.residents.map((link) => {
@@ -59,37 +59,37 @@ const fetchHomeworld = (data) => {
   });
 
   return Promise.all(specificResidentsData);
-}
+};
 
 
-  const cleanData = (data) => {
-      const filmOpenings = data[0].results.map(obj => {
-        return Object.assign({}, {Opening: obj.opening_crawl,
-          Title: obj.title, Release: obj.release_date});
-        });
+const cleanData = (data) => {
+  const filmOpenings = data[0].results.map(object => {
+    return Object.assign({}, {Opening: object.opening_crawl,
+      Title: object.title, Release: object.release_date});
+  });
 
-        const mappedPeople = data[1].map(obj => {
-          return Object.assign({}, {Name: obj.name,
-            Homeworld: obj.Homeworld,
-            Species: obj.Species,
-            Population: obj.Population});
-        });
+  const mappedPeople = data[1].map(object => {
+    return Object.assign({}, {Name: object.name,
+      Homeworld: object.Homeworld,
+      Species: object.Species,
+      Population: object.Population});
+  });
 
-        const mappedPlanets = data[2].map(obj => {
-          return Object.assign({}, {Name: obj.name,
-            Terrain: obj.terrain,
-            Population: obj.population,
-            Climate: obj.climate,
-            Residents: obj.Residents});
-        });
-        const vehicles = data[3].results.map(obj => {
-          return Object.assign({}, {Name: obj.name,
-            Model: obj.model, Vehicle: obj.vehicle_class,
-            Passengers: obj.passengers});
-});
+  const mappedPlanets = data[2].map(object => {
+    return Object.assign({}, {Name: object.name,
+      Terrain: object.terrain,
+      Population: object.population,
+      Climate: object.climate,
+      Residents: object.Residents});
+  });
+  const vehicles = data[3].results.map(object => {
+    return Object.assign({}, {Name: object.name,
+      Model: object.model, Vehicle: object.vehicle_class,
+      Passengers: object.passengers});
+  });
 
-        return [filmOpenings, mappedPeople, mappedPlanets, vehicles];
-}
+  return [filmOpenings, mappedPeople, mappedPlanets, vehicles];
+};
 
 
 module.exports = {
@@ -101,5 +101,4 @@ module.exports = {
   getPlanets,
   fetchResidents,
   getVehicles
-
-}
+};
