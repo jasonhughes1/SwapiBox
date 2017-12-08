@@ -1,21 +1,13 @@
-.button {
-  height: 55px;
-  border-radius: 20px;
-  width: 150px;
-  border: 1px solid #2f2f2f;
+button {
+  margin: 5px;
+  height: 50px;
+  border-radius: 10px;
+  width: 180px;
+  border: 1px solid yellow;
   cursor: pointer;
   font-family: inherit;
   font-size: 20px;
   outline: none; }
 
-.button:hover {
+button:hover {
   background-color: yellow; }
-
-.active {
-  background-color: gray;
-  color: #fff; }
-
-.main-btn {
-  margin-top: 50px;
-  width: 200px;
-  height: 50px; }

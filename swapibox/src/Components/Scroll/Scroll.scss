@@ -1,26 +1,62 @@
-.scroll-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+body {
+  height: 100%;
+  width: 100%;
+  background: #000;
 }
 
-.opening-crawl,
-.opening-title,
-.opening-releaseDate {
+.crawl-container {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.fade {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  min-height: 30vh;
+  top: -25px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: 1;
+}
+
+.star-wars {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  height: 600px;
+  color: yellow;
+  font-size: 150%;
+  letter-spacing: 6px;
+  line-height: 175%;
+  text-align: justify;
+  perspective: 400px;
+}
+
+.crawl {
   width: 50%;
-position: relative;
-top: -100px;
-transform-origin: 90% 90%;
-animation: crawl 30s infinite linear;
+  position: relative;
+  top: -100px;
+  transform-origin: 90% -20%;
+  animation: crawl 50s infinite linear;
 }
 
 @keyframes crawl {
-0% {
-  top: 0;
-  transform: rotateX(20deg) translateZ(0);
+  0% {
+    top: 0;
+    transform: rotateX(25deg) translateZ(0);
+  }
+  100% {
+    top: -1500px;
+    transform: rotateX(25deg) translateZ(-2500deg);;
+  }
 }
-100% {
-  top: -1500px;
-  transform: rotateX(25deg) translateZ(-2500deg);;
-}
+
+.crawl-text,
+.film-title,
+.release-date {
+  text-align: center;
 }

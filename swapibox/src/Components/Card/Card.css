@@ -1,8 +1,8 @@
 .card-holder {
   border: 2px solid yellow;
   background-color: grey;
-  width: 400px;
-  height: 500px;
+  width: 500px;
+  height: 800px;
   margin: 10px;
   border-radius: 25px;
   display: flex;
