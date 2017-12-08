@@ -16,6 +16,8 @@ class App extends Component {
       people: null,
       opening: Math.floor(Math.random() * (6 - 0 + 1)),
       currentIndex: 1,
+      favClicked: false,
+      favorites: [],
       openingCrawl: '',
     }
   }
@@ -60,6 +62,34 @@ class App extends Component {
   //   // this.setState({openingCrawl : })
   // }
 
+  findIndexInFavArray(element) {
+  return this === element.Name;
+}
+
+setFavorite = (cardData) => {
+  const { favorites } = this.state;
+
+  const indexOfFavorite = favorites
+    .findIndex(this.findIndexInFavArray, cardData.Name);
+
+  let oldFavorites;
+
+  if (indexOfFavorite < 0) {
+    oldFavorites = [...favorites, cardData];
+  } else {
+    oldFavorites = favorites.slice();
+    oldFavorites.splice(indexOfFavorite, 1);
+  }
+
+  this.setState({
+    favorites: oldFavorites
+  });
+}
+
+favClicked = () => {
+  this.setState({ favClicked: true});
+}
+
 
   changeCards = (num) => {
     this.setState({currentIndex: num})
@@ -74,8 +104,12 @@ class App extends Component {
     if (this.state.data) {
       return (
         <div className='App'>
-          <Header />
+          <Header favFn={this.favClicked}
+                  numFav={this.state.favorites.length}
+                />
+
           <div className='button-container'>
+
           <Controls
             buttonText='People'
             className={'button  main-btn active'}
@@ -101,6 +135,7 @@ class App extends Component {
           />
           <CardContainer
             cardType = {this.cardSet()}
+            setFavorite={this.setFavorite}
           />
         </div>
       );

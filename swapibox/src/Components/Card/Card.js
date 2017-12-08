@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.css';
 
-const Card = ({ cardData }) => {
+const Card = ({ cardData, setFavorite }) => {
   const cardKeys = Object.keys(cardData);
   const cards = cardKeys.map((key, index) => {
   const populateCard = cardData[dataReturn(key)];
@@ -16,16 +16,18 @@ const Card = ({ cardData }) => {
       }
     }
     return (
-      <div  key={index}>
+      <div
+        key={index}>
         <h3>{key}</h3>
-
-        <p>{populateCard}</p>
+         <p>{populateCard}</p>
       </div>
     );
   });
 
   return (
     <article className='card-holder'>
+      <button className='favorite-btn'
+        onClick={() => setFavorite(cardData)}>Favorite</button>
     { cards }
     </article>
   );
