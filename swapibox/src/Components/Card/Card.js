@@ -1,5 +1,6 @@
 import React from 'react';
 import './Card.css';
+import PropTypes from 'prop-types';
 
 const Card = ({ cardData, setFavorite }) => {
   const cardKeys = Object.keys(cardData);
@@ -31,6 +32,11 @@ const Card = ({ cardData, setFavorite }) => {
       { cards }
     </article>
   );
+};
+
+Card.propTypes = {
+  cardData: PropTypes.object,
+  setFavorite: PropTypes.func
 };
 
 export default Card;

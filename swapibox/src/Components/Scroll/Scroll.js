@@ -1,10 +1,11 @@
 import React from 'react';
-import css from './Scroll.css';
+import './Scroll.css';
+import PropTypes from 'prop-types';
 
 const Scroll = ({data, opening}) => {
-const text = data[opening].Opening;
-const filmTitle = data[opening].Title;
-const releaseDate = data[opening].Release;
+  const text = data[opening].Opening;
+  const filmTitle = data[opening].Title;
+  const releaseDate = data[opening].Release;
 
   return (
     <div>
@@ -20,8 +21,12 @@ const releaseDate = data[opening].Release;
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
+Scroll.propTypes = {
+  data: PropTypes.array,
+  opening: PropTypes.number
+};
 
 export default Scroll;

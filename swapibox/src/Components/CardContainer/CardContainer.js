@@ -1,8 +1,9 @@
 import React from 'react';
 import Card from './../Card/Card.js';
 import './CardContainer.css';
+import PropTypes from 'prop-types';
 
-const CardContainer = ({ cardType, setFavorite, favArray }) => {
+const CardContainer = ({ cardType, setFavorite}) => {
   if (cardType) {
     const cards = cardType.map((card, index) =>
       <Card cardData={card}
@@ -21,6 +22,11 @@ const CardContainer = ({ cardType, setFavorite, favArray }) => {
       <h2 className='select-favs'>There are no favorites!</h2>
     );
   }
+};
+
+CardContainer.propTypes = {
+  cardType: PropTypes.array,
+  setFavorite: PropTypes.func
 };
 
 export default CardContainer;

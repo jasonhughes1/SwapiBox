@@ -4,7 +4,9 @@ import Controls from './../Controls/Controls.js';
 import Scroll from './../Scroll/Scroll.js';
 import Header from './../Header/Header.js';
 import CardContainer from './../CardContainer/CardContainer';
-import { getFilms, getPeople, getPlanets, getVehicles, fetchHomeworld, fetchSpecies, cleanData, fetchResidents } from '../../utility.js';
+import { getFilms, getPeople, getPlanets,
+  getVehicles, fetchHomeworld, fetchSpecies,
+  cleanData, fetchResidents } from '../../utility.js';
 
 
 class App extends Component {
@@ -38,18 +40,9 @@ class App extends Component {
       });
   }
 
-  // generateCrawl() {
-  //   let random = Math.floor(Math.random() * (6 - 0 + 1))
-  //
-  // }
-  //   // generate a random number
-  //   // grab films array map through it to get an array of crawls
-  //   // then pick one
-  //   // this.setState({openingCrawl : })
-  // }
   findIndexInFavArray(element) {
     return this === element.Name;
-}
+  }
 
 setFavorite = (cardData) => {
   const { favorites } = this.state;
