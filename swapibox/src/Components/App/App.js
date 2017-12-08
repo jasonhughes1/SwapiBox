@@ -19,13 +19,11 @@ class App extends Component {
     }
   }
 
-  // use async await
     componentDidMount() {
       const films = getFilms()
       const people = getPeople()
       const planets = getPlanets()
       const vehicles = getVehicles()
-
 
       return Promise.all([films, people, planets, vehicles])
       .then(data => {
@@ -49,7 +47,6 @@ class App extends Component {
   //   // then pick one
   //   // this.setState({openingCrawl : })
   // }
-
   findIndexInFavArray(element) {
   return this === element.Name;
 }
@@ -78,7 +75,6 @@ favClicked = () => {
   this.setState({ favClicked: true});
 }
 
-
   changeCards = (num) => {
     this.setState({currentIndex: num})
   }
@@ -99,9 +95,7 @@ favClicked = () => {
                   numFav={this.state.favorites.length}
                   changeCards={this.changeCards}
                   num={4}
-
                 />
-
           <div className='button-container'>
 
           <Controls
@@ -109,7 +103,6 @@ favClicked = () => {
             className={'button  main-btn active'}
             changeCards={this.changeCards}
             num={1}
-
           />
           <Controls
             buttonText='Planets'
