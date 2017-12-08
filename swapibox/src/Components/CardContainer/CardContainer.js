@@ -23,6 +23,4 @@ const CardContainer = ({ cardType, setFavorite, favArray }) => {
   }
 };
 
-
-
 export default CardContainer;

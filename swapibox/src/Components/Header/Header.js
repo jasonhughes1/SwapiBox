@@ -17,5 +17,4 @@ const Header = ({favFn, numFav, changeCards, num}) => {
   )
 }
 
-
 export default Header;

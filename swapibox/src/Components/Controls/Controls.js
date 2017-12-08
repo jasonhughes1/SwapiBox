@@ -10,5 +10,4 @@ const Controls = ({ buttonText, changeCards, num, className }) => {
   )
 }
 
-
 export default Controls;

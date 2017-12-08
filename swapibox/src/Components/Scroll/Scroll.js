@@ -24,4 +24,5 @@ const releaseDate = data[opening].Release;
   )
 }
 
+
 export default Scroll;

@@ -33,5 +33,4 @@ const Card = ({ cardData, setFavorite }) => {
   );
 };
 
-
 export default Card;
