@@ -1,15 +1,13 @@
 body {
   height: 100%;
   width: 100%;
-  background: #000;
-}
+  background: #000; }
 
 .crawl-container {
   width: 100%;
   height: 50vh;
   position: relative;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 .fade {
   display: flex;
@@ -20,8 +18,7 @@ body {
   min-height: 30vh;
   top: -25px;
   background-image: linear-gradient(0deg, transparent, black 75%);
-  z-index: 1;
-}
+  z-index: 1; }
 
 .star-wars {
   padding-top: 20px;
@@ -33,30 +30,24 @@ body {
   letter-spacing: 6px;
   line-height: 175%;
   text-align: justify;
-  perspective: 400px;
-}
+  perspective: 400px; }
 
 .crawl {
   width: 50%;
   position: relative;
   top: -100px;
   transform-origin: 90% -20%;
-  animation: crawl 50s infinite linear;
-}
+  animation: crawl 50s infinite linear; }
 
 @keyframes crawl {
   0% {
     top: 0;
-    transform: rotateX(25deg) translateZ(0);
-  }
+    transform: rotateX(25deg) translateZ(0); }
   100% {
     top: -1500px;
-    transform: rotateX(25deg) translateZ(-2500deg);;
-  }
-}
+    transform: rotateX(25deg) translateZ(-2500deg); } }
 
 .crawl-text,
 .film-title,
 .release-date {
-  text-align: center;
-}
+  text-align: center; }

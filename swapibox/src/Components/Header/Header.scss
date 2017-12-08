@@ -1,15 +1,20 @@
-.header-container {
-  background-color: black;
+.header {
   background-image:url("http://localhost:3000/images/yoda.jpg");
   background-repeat: no-repeat;
-  height: 480px;
+  background-size:contain;
+  height: 450px;
+  background-position: 55%;
+  margin: -80px;
+
 }
 
 .main-header {
   color: yellow;
   background-color: black;
+  font-size: 80px;
 }
 
 .fav-button {
   background-color: yellow;
+  margin: -100px;
 }

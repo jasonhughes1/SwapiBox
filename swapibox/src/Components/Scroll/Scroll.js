@@ -20,8 +20,8 @@ const releaseDate = data[opening].Release;
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 
 export default Scroll;
