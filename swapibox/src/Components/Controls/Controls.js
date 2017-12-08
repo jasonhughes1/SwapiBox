@@ -7,7 +7,7 @@ const Controls = ({ buttonText, changeCards, num, className }) => {
     <div className={`${className}`}>
       <button onClick={() => (changeCards(num))}>{buttonText}</button>
     </div>
-  )
-}
+  );
+};
 
 export default Controls;
