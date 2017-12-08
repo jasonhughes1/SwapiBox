@@ -9,34 +9,34 @@ import { getFilms, getPeople, getPlanets, getVehicles, fetchHomeworld, fetchSpec
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       data: null,
       opening: Math.floor(Math.random() * (6 - 0 + 1)),
       currentIndex: 1,
       favClicked: false,
-      favorites: [],
-    }
+      favorites: []
+    };
   }
 
-    componentDidMount() {
-      const films = getFilms()
-      const people = getPeople()
-      const planets = getPlanets()
-      const vehicles = getVehicles()
+  componentDidMount() {
+    const films = getFilms();
+    const people = getPeople();
+    const planets = getPlanets();
+    const vehicles = getVehicles();
 
-      return Promise.all([films, people, planets, vehicles])
+    return Promise.all([films, people, planets, vehicles])
       .then(data => {
         const peopleData = fetchHomeworld(data[1].results)
-        .then(data => fetchSpecies(data));
+          .then(data => fetchSpecies(data));
         const planetsData = fetchResidents(data[2].results);
         return Promise.all([films, peopleData, planetsData, vehicles])
-        .then(data => {
+          .then(data => {
 
-          this.setState({data: cleanData(data)})
-        })
+            this.setState({data: cleanData(data)});
+          });
       });
-    }
+  }
 
   // generateCrawl() {
   //   let random = Math.floor(Math.random() * (6 - 0 + 1))
@@ -48,7 +48,7 @@ class App extends Component {
   //   // this.setState({openingCrawl : })
   // }
   findIndexInFavArray(element) {
-  return this === element.Name;
+    return this === element.Name;
 }
 
 setFavorite = (cardData) => {
@@ -76,12 +76,12 @@ favClicked = () => {
 }
 
   changeCards = (num) => {
-    this.setState({currentIndex: num})
+    this.setState({currentIndex: num});
   }
 
   cardSet() {
     const { data, currentIndex, favorites } = this.state;
-    if(currentIndex === 4) {
+    if (currentIndex === 4) {
       return favorites;
     }
     return data[currentIndex];
@@ -92,31 +92,31 @@ favClicked = () => {
       return (
         <div className='App'>
           <Header favFn={this.favClicked}
-                  numFav={this.state.favorites.length}
-                  changeCards={this.changeCards}
-                  num={4}
-                />
+            numFav={this.state.favorites.length}
+            changeCards={this.changeCards}
+            num={4}
+          />
           <div className='button-container'>
 
-          <Controls
-            buttonText='People'
-            className={'button  main-btn active'}
-            changeCards={this.changeCards}
-            num={1}
-          />
-          <Controls
-            buttonText='Planets'
-            className={'button  main-btn active'}
-            changeCards={this.changeCards}
-            num={2}
-          />
-          <Controls
-            buttonText='Vehicles'
-            className={'button  main-btn active'}
-            changeCards={this.changeCards}
-            num={3}
-          />
-        </div>
+            <Controls
+              buttonText='People'
+              className={'button  main-btn active'}
+              changeCards={this.changeCards}
+              num={1}
+            />
+            <Controls
+              buttonText='Planets'
+              className={'button  main-btn active'}
+              changeCards={this.changeCards}
+              num={2}
+            />
+            <Controls
+              buttonText='Vehicles'
+              className={'button  main-btn active'}
+              changeCards={this.changeCards}
+              num={3}
+            />
+          </div>
           <Scroll data={this.state.data[0]}
             opening={this.state.opening}
           />
@@ -131,7 +131,7 @@ favClicked = () => {
     } else {
       return (
         <div>WAIT</div>
-      )
+      );
     }
   }
 }

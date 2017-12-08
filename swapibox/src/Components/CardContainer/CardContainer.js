@@ -6,9 +6,9 @@ const CardContainer = ({ cardType, setFavorite, favArray }) => {
   if (cardType) {
     const cards = cardType.map((card, index) =>
       <Card cardData={card}
-                 key={index}
-                 setFavorite={setFavorite}
-       />
+        key={index}
+        setFavorite={setFavorite}
+      />
     );
 
     return (
@@ -19,7 +19,7 @@ const CardContainer = ({ cardType, setFavorite, favArray }) => {
   } else {
     return (
       <h2 className='select-favs'>There are no favorites!</h2>
-    )
+    );
   }
 };
 
