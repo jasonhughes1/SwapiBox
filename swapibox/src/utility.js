@@ -17,7 +17,6 @@ const getVehicles = () => {
     .then(data => data.json());
 }
 
-
 const fetchHomeworld = (data) => {
   const homeworldData = data.map((world) => {
     return fetch(world.homeworld)
