@@ -3,11 +3,10 @@ button {
   height: 50px;
   border-radius: 10px;
   width: 180px;
-  border: 2px solid #A0A469;
   cursor: pointer;
   font-family: inherit;
   font-size: 20px;
   outline: none; }
 
 button:hover {
-  background-color: yellow; }
+  background-color: #F50E1D; }

@@ -27,7 +27,7 @@ const Card = ({ cardData, setFavorite }) => {
 
   return (
     <article className='card-holder'>
-      <button className='favorite-btn'
+      <button className={'favorite-btn highlight'}
         onClick={() => setFavorite(cardData)}>Favorite</button>
       { cards }
     </article>

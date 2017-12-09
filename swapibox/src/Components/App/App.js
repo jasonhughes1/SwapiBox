@@ -7,6 +7,7 @@ import CardContainer from './../CardContainer/CardContainer';
 import { getFilms, getPeople, getPlanets,
   getVehicles, fetchHomeworld, fetchSpecies,
   cleanData, fetchResidents } from '../../utility.js';
+import GIF from './Loading_icon.gif';
 
 
 class App extends Component {
@@ -34,7 +35,7 @@ class App extends Component {
         const planetsData = fetchResidents(data[2].results);
         return Promise.all([films, peopleData, planetsData, vehicles])
           .then(data => {
-
+            
             this.setState({data: cleanData(data)});
           });
       });
@@ -116,14 +117,17 @@ favClicked = () => {
           <CardContainer
             cardType = {this.cardSet()}
             setFavorite={this.setFavorite}
-            favArray={this.state.favorites}
-
           />
         </div>
       );
     } else {
       return (
-        <div>WAIT</div>
+        <div className='loading-gif'>
+          <img src = {GIF}
+            className='gif'
+          />
+          <h2 className='loading-text'>Content Loading, please wait</h2>
+        </div>
       );
     }
   }

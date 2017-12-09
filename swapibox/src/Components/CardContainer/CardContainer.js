@@ -4,7 +4,8 @@ import './CardContainer.css';
 import PropTypes from 'prop-types';
 
 const CardContainer = ({ cardType, setFavorite}) => {
-  if (cardType) {
+  console.log(setFavorite);
+  if (cardType.length > 0) {
     const cards = cardType.map((card, index) =>
       <Card cardData={card}
         key={index}

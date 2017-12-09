@@ -1,12 +1,12 @@
 .card-holder {
-  background-color: #A0A469;
+  background-color: grey;
   width: 500px;
   margin: 10px;
   border-radius: 25px;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 10px 5px 5px grey; }
+  border: 2px solid #F50E1D; }
 
 .card-holder:hover {
-  background-color: grey;
+  background-color: darkgrey;
   cursor: pointer; }
