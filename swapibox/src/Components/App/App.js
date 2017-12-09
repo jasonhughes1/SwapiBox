@@ -116,8 +116,6 @@ favClicked = () => {
           <CardContainer
             cardType = {this.cardSet()}
             setFavorite={this.setFavorite}
-            favArray={this.state.favorites}
-
           />
         </div>
       );

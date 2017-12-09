@@ -57,35 +57,41 @@ const fetchResidents = (data) => {
       return Object.assign(planets, {Residents: people});
     });
   });
-
+  
   return Promise.all(specificResidentsData);
 };
 
 
 const cleanData = (data) => {
   const filmOpenings = data[0].results.map(object => {
-    return Object.assign({}, {Opening: object.opening_crawl,
-      Title: object.title, Release: object.release_date});
+    return Object.assign({},
+      {Opening: object.opening_crawl,
+        Title: object.title,
+        Release: object.release_date});
   });
 
   const mappedPeople = data[1].map(object => {
-    return Object.assign({}, {Name: object.name,
-      Homeworld: object.Homeworld,
-      Species: object.Species,
-      Population: object.Population});
+    return Object.assign({},
+      {Name: object.name,
+        Homeworld: object.Homeworld,
+        Species: object.Species,
+        Population: object.Population});
   });
 
   const mappedPlanets = data[2].map(object => {
-    return Object.assign({}, {Name: object.name,
-      Terrain: object.terrain,
-      Population: object.population,
-      Climate: object.climate,
-      Residents: object.Residents});
+    return Object.assign({},
+      {Name: object.name,
+        Terrain: object.terrain,
+        Population: object.population,
+        Climate: object.climate,
+        Residents: object.Residents});
   });
   const vehicles = data[3].results.map(object => {
-    return Object.assign({}, {Name: object.name,
-      Model: object.model, Vehicle: object.vehicle_class,
-      Passengers: object.passengers});
+    return Object.assign({},
+      {Name: object.name,
+        Model: object.model,
+        Vehicle: object.vehicle_class,
+        Passengers: object.passengers});
   });
 
   return [filmOpenings, mappedPeople, mappedPlanets, vehicles];
