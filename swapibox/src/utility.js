@@ -1,5 +1,6 @@
 const getFilms = () => {
-  return fetch('https://swapi.co/api/films/').then(data => data.json());
+  return fetch('https://swapi.co/api/films/')
+    .then(data => data.json());
 };
 
 const getPeople = () => {
@@ -57,7 +58,7 @@ const fetchResidents = (data) => {
       return Object.assign(planets, {Residents: people});
     });
   });
-  
+
   return Promise.all(specificResidentsData);
 };
 
