@@ -10,3 +10,19 @@
   display: flex;
   justify-content: center;
 }
+
+.loading-gif{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loading-text {
+  color: white;
+  align-self: center;
+}
+
+.gif {
+  width: 50%;
+  align-self: center;
+}
