@@ -3,6 +3,8 @@ import './Scroll.css';
 import PropTypes from 'prop-types';
 
 const Scroll = ({data, opening}) => {
+  console.log(data);
+  console.log(opening);
   const text = data[opening].Opening;
   const filmTitle = data[opening].Title;
   const releaseDate = data[opening].Release;

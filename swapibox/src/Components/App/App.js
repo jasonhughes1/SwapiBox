@@ -35,7 +35,7 @@ class App extends Component {
         const planetsData = fetchResidents(data[2].results);
         return Promise.all([films, peopleData, planetsData, vehicles])
           .then(data => {
-
+            
             this.setState({data: cleanData(data)});
           });
       });
