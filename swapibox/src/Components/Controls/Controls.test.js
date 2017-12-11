@@ -37,5 +37,5 @@ describe('Controls Tests', () => {
 
   it('should match snapshot', () => {
     expect(renderedControls).toMatchSnapshot();
-  })
+  });
 });

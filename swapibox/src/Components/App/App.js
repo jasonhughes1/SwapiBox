@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
       data: null,
       opening: Math.floor(Math.random() * (6 - 0 + 1)),
-      currentIndex: 1,
+      currentDataToDisplay: 1,
       favClicked: false,
       favorites: []
     };
@@ -35,7 +35,7 @@ class App extends Component {
         const planetsData = fetchResidents(data[2].results);
         return Promise.all([films, peopleData, planetsData, vehicles])
           .then(data => {
-            
+
             this.setState({data: cleanData(data)});
           });
       });
@@ -70,15 +70,15 @@ favClicked = () => {
 }
 
   changeCards = (num) => {
-    this.setState({currentIndex: num});
+    this.setState({currentDataToDisplay: num});
   }
 
   cardSet() {
-    const { data, currentIndex, favorites } = this.state;
-    if (currentIndex === 4) {
+    const { data, currentDataToDisplay, favorites } = this.state;
+    if (currentDataToDisplay === 4) {
       return favorites;
     }
-    return data[currentIndex];
+    return data[currentDataToDisplay];
   }
 
   render() {
@@ -89,26 +89,30 @@ favClicked = () => {
             numFav={this.state.favorites.length}
             changeCards={this.changeCards}
             num={4}
+            favArray={this.state.favorites}
           />
           <div className='button-container'>
 
             <Controls
               buttonText='People'
-              className={'button  main-btn active'}
+              className={'button '}
               changeCards={this.changeCards}
               num={1}
+              currentData={this.state.currentDataToDisplay}
             />
             <Controls
               buttonText='Planets'
-              className={'button  main-btn active'}
+              className={'button '}
               changeCards={this.changeCards}
               num={2}
+              currentData={this.state.currentDataToDisplay}
             />
             <Controls
               buttonText='Vehicles'
-              className={'button  main-btn active'}
+              className={'button '}
               changeCards={this.changeCards}
               num={3}
+              currentData={this.state.currentDataToDisplay}
             />
           </div>
           <Scroll data={this.state.data[0]}
@@ -117,6 +121,7 @@ favClicked = () => {
           <CardContainer
             cardType = {this.cardSet()}
             setFavorite={this.setFavorite}
+            favArray={this.state.favorites}
           />
         </div>
       );

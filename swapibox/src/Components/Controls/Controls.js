@@ -3,10 +3,14 @@ import './Controls.css';
 import PropTypes from 'prop-types';
 
 
-const Controls = ({ buttonText, changeCards, num, className }) => {
+const Controls = ({ buttonText, changeCards, num, className, currentData }) => {
+  const buttonClass = num === currentData ?
+    className + 'active' :
+    className + 'inactive';
   return (
-    <div className={`${className}`}>
-      <button onClick={() => (changeCards(num))}>{buttonText}</button>
+    <div >
+      <button className={`${buttonClass}`}
+        onClick={() => (changeCards(num))}>{buttonText}</button>
     </div>
   );
 };

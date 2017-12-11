@@ -25,8 +25,8 @@ const fetchHomeworld = (data) => {
   });
 
   return Promise.all(homeworldData).then( homeworlds => {
-    return homeworlds.map((homeworld, currentIndex) => {
-      return Object.assign(data[currentIndex],
+    return homeworlds.map((homeworld, currentDataToDisplay) => {
+      return Object.assign(data[currentDataToDisplay],
         {Homeworld: homeworld.name,
           Population: homeworld.population});
     });
