@@ -20,9 +20,9 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": <button
+        className="undefinedactive"
         onClick={[Function]}
 />,
-      "className": "undefined",
     },
     "ref": null,
     "rendered": Object {
@@ -31,6 +31,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": undefined,
+        "className": "undefinedactive",
         "onClick": [Function],
       },
       "ref": null,
@@ -46,9 +47,9 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": <button
+          className="undefinedactive"
           onClick={[Function]}
 />,
-        "className": "undefined",
       },
       "ref": null,
       "rendered": Object {
@@ -57,6 +58,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": undefined,
+          "className": "undefinedactive",
           "onClick": [Function],
         },
         "ref": null,

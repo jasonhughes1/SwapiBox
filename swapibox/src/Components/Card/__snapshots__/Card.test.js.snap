@@ -26,7 +26,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <button
-          className="favorite-btn highlight"
+          className={undefined}
           onClick={[Function]}
 >
           Favorite
@@ -52,7 +52,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Favorite",
-          "className": "favorite-btn highlight",
+          "className": undefined,
           "onClick": [Function],
         },
         "ref": null,
@@ -111,7 +111,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <button
-            className="favorite-btn highlight"
+            className={undefined}
             onClick={[Function]}
 >
             Favorite
@@ -137,7 +137,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Favorite",
-            "className": "favorite-btn highlight",
+            "className": undefined,
             "onClick": [Function],
           },
           "ref": null,
