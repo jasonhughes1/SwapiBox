@@ -1,5 +1,5 @@
 import React from 'react';
-import CardContainer from './CardContainer'
+import CardContainer from './CardContainer';
 import { shallow } from 'enzyme';
 
 let mockCardType = [{
@@ -54,24 +54,21 @@ let mockCardType = [{
   Population: "200000"
 }];
 
-let mockSetFavorite = jest.fn()
+let mockSetFavorite = jest.fn();
 let renderedCardContainer;
 
 describe('CardContainer                   Tests', () => {
   renderedCardContainer = shallow(
     <CardContainer
-    cardType={mockCardType}
-    setFavorite={mockSetFavorite}/>
-  )
+      cardType={mockCardType}
+      setFavorite={mockSetFavorite}/>
+  );
 
-it('should render correctly', () => {
-expect(renderedCardContainer).toBeDefined();
-});
+  it('should render correctly', () => {
+    expect(renderedCardContainer).toBeDefined();
+  });
 
-it('should match snapshot', () => {
-  expect(renderedCardContainer).toMatchSnapshot()
-})
-
-
-
+  it('should match snapshot', () => {
+    expect(renderedCardContainer).toMatchSnapshot();
+  });
 });
