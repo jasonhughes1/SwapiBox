@@ -19,7 +19,8 @@ Controls.propTypes = {
   buttonText: PropTypes.string,
   changeCards: PropTypes.func,
   className: PropTypes.string,
-  num: PropTypes.number
+  num: PropTypes.number,
+  currentData: PropTypes.array
 };
 
 export default Controls;
