@@ -13,4 +13,13 @@
 
 .fav-button {
   background-color: yellow;
-  margin: -100px; }
+  margin: -100px;
+  margin: 5px;
+  height: 50px;
+  border-radius: 10px;
+  width: 180px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 20px;
+  outline: none;
+  background-color: none; }

@@ -3,15 +3,22 @@ import Card from './../Card/Card.js';
 import './CardContainer.css';
 import PropTypes from 'prop-types';
 
-const CardContainer = ({ cardType, setFavorite}) => {
-  console.log(setFavorite);
+
+const CardContainer = ({ cardType, setFavorite, favArray}) => {
+
+
   if (cardType.length > 0) {
-    const cards = cardType.map((card, index) =>
-      <Card cardData={card}
+    const cards = cardType.map((card, index) => {
+      let favClass = (favArray.find(favCard => {
+        return card === favCard;
+      })) ? 'active' : 'inactive';
+      return <Card
+        favClass={favClass}
+        cardData={card}
         key={index}
         setFavorite={setFavorite}
-      />
-    );
+      />;
+    });
 
     return (
       <div className='card-container'>
@@ -27,7 +34,8 @@ const CardContainer = ({ cardType, setFavorite}) => {
 
 CardContainer.propTypes = {
   cardType: PropTypes.array,
-  setFavorite: PropTypes.func
+  setFavorite: PropTypes.func,
+  favArray: PropTypes.array
 };
 
 export default CardContainer;

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 
 const Header = ({favFn, numFav, changeCards, num}) => {
+
   return (
     <div className="header-container">
       <h1 className="main-header">SWAPI-Box</h1>

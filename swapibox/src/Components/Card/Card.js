@@ -2,7 +2,7 @@ import React from 'react';
 import './Card.css';
 import PropTypes from 'prop-types';
 
-const Card = ({ cardData, setFavorite }) => {
+const Card = ({ cardData, setFavorite, favClass }) => {
   const cardKeys = Object.keys(cardData);
   const cards = cardKeys.map((key, index) => {
     const populateCard = cardData[dataReturn(key)];
@@ -27,7 +27,7 @@ const Card = ({ cardData, setFavorite }) => {
 
   return (
     <article className='card-holder'>
-      <button className={'favorite-btn highlight'}
+      <button className={favClass}
         onClick={() => setFavorite(cardData)}>Favorite</button>
       { cards }
     </article>
@@ -36,7 +36,8 @@ const Card = ({ cardData, setFavorite }) => {
 
 Card.propTypes = {
   cardData: PropTypes.object,
-  setFavorite: PropTypes.func
+  setFavorite: PropTypes.func,
+  favClass: PropTypes.string
 };
 
 export default Card;
