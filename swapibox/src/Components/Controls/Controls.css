@@ -10,10 +10,10 @@
   background-color: none; }
 
 .inactive {
-  background-color: green; }
+  background-color: white; }
 
 .active {
   background-color: blue; }
 
 button:hover {
-  background-color: #F50E1D; }
+  background-color: grey; }
