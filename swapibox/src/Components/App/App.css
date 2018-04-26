@@ -20,3 +20,7 @@
 .gif {
   width: 50%;
   align-self: center; }
+
+@media screen and (max-width: 600px) {
+  .button-container {
+    flex-direction: column; } }
